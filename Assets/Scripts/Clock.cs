@@ -49,6 +49,7 @@ public class Clock : MonoBehaviour
     }
     void SetArrow(int value, int maxValue, Transform arrow)
     {
+        if (value > maxValue) value -= maxValue;
         float percent = Mathf.InverseLerp(0, maxValue, value);
         float angle = Mathf.Lerp(0, 360, percent);
         arrow.localRotation = Quaternion.Euler(new Vector3(0,0,-angle));
